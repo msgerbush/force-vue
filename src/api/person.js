@@ -26,6 +26,27 @@ person.fetch = id => {
   });
 };
 
+person.search = term => {
+  if (!term) {
+    return Promise.resolve(null);
+  }
+  return new Promise((resolve, reject) => {
+    if (personCache[term]) {
+      resolve(personCache[term]);
+    }
+    const searchPersonURL = `${personBaseUrl}?search=${term}`;
+    Vue.http.get(searchPersonURL).then(response => {
+      const data = response.data;
+      if (data.count > 0) {
+        const personData = personCache[term] = response.data.results[0];
+        resolve(personData);
+      } else {
+        resolve(null);
+      }
+    }, reject);
+  });
+};
+
 person.getPicture = searchWord => {
   if (!searchWord) {
     return Promise.resolve('');

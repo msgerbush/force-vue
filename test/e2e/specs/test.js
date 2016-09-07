@@ -12,6 +12,8 @@ module.exports = {
     .url('http://localhost:8080')
       .waitForElementVisible('#app', 5000)
       .assert.elementPresent('.randPersonBtn')
+      .assert.elementPresent('.searchPersonBtn')
+      .assert.elementPresent('.searchPersonField')
       .pause(5000)
       .end()
   },
