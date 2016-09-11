@@ -8,24 +8,24 @@
       <mdl-button class="randPersonBtn" v-mdl-ripple-effect colored icon raised @click="fetchRandomPerson">
         <i class="material-icons">face</i> Random Person
       </mdl-button>
-      <span v-show="searchMsg">{{searchMsg}}</span>
+      <span v-show="searchMsg" class="searchMsg">{{searchMsg}}</span>
     </div>
     <div class="mdl-grid person-cards">
-      <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-        <mdl-textfield floating-label="Name" :value="personData.name"></mdl-textfield>
-        <mdl-textfield floating-label="Height" :value="personData.height"></mdl-textfield>
-        <mdl-textfield floating-label="Mass" :value="personData.mass"></mdl-textfield>
-        <mdl-textfield floating-label="Hair Color" :value="personData.hair_color"></mdl-textfield>
-        <mdl-textfield floating-label="Eye Color" :value="personData.eye_color"></mdl-textfield>
-        <mdl-textfield floating-label="Birth Year" :value="personData.birth_year"></mdl-textfield>
-        <mdl-textfield floating-label="Gender" :value="personData.gender"></mdl-textfield>
+      <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card person-data-card">
+        <mdl-textfield class="person-data-card__name" floating-label="Name" :value="personData.name"></mdl-textfield>
+        <mdl-textfield class="person-data-card__height" floating-label="Height" :value="personData.height"></mdl-textfield>
+        <mdl-textfield class="person-data-card__mass" floating-label="Mass" :value="personData.mass"></mdl-textfield>
+        <mdl-textfield class="person-data-card__hair" floating-label="Hair Color" :value="personData.hair_color"></mdl-textfield>
+        <mdl-textfield class="person-data-card__eyes" floating-label="Eye Color" :value="personData.eye_color"></mdl-textfield>
+        <mdl-textfield class="person-data-card__birth" floating-label="Birth Year" :value="personData.birth_year"></mdl-textfield>
+        <mdl-textfield class="person-data-card__gender" floating-label="Gender" :value="personData.gender"></mdl-textfield>
       </div>
-      <div class="mdl-cell mdl-card mdl-shadow--4dp">
+      <div class="mdl-cell mdl-card mdl-shadow--4dp person-image-card">
         <figure class="mdl-card__media">
           <div v-show="loadingImg" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
           <div v-else>
             <img v-show="personImage" :src="personImage">
-            <span v-else>{{personImageMsg}}</span>
+            <span v-else class="person-image-card__message">{{personImageMsg}}</span>
           </div>
         </figure>
       </div>
