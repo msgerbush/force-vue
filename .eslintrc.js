@@ -5,7 +5,6 @@ module.exports = {
   plugins: [
     'html',
   ],
-  extends: 'airbnb-base',
   // add your custom rules here
   rules: {
     // allow debugger during development
